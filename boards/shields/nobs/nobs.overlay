@@ -1,3 +1,4 @@
+#include <dt-bindings/zmk/matrix_transform.h>
 / {
     chosen {
         zmk,kscan = &kscan0;
@@ -7,10 +8,10 @@
         compatible = "zmk,kscan-gpio-direct";
         wakeup-source;
         input-gpios
-            = <&pro_micro 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&pro_micro 8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&pro_micro 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            ;
+            = <&pro_micro 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
+              <&pro_micro 8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
+              <&pro_micro 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+            
     };
 
     default_transform: matrix_transform {
