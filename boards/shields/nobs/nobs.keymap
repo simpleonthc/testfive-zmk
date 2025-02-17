@@ -8,7 +8,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default {
+        default_layer {
             bindings = <
                 &bt BT_NXT    &bt BT_CLR    &kp K
             >;
