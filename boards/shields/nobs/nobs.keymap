@@ -2,11 +2,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer { // Layer 0
-            // -------------------------------------
-            // |     Z     |     M     |     K     |
-            // |     A     |     B     |     C     |
-            // |     D     |     E     |     F     |
+        default_layer {
             bindings = <
                 &kp Z    &kp M    &kp K
             >;
