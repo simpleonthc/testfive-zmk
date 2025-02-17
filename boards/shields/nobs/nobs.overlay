@@ -7,7 +7,9 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
 / {
+    
     chosen {
+        zmk,physical-layout = &physical_layout0;
         zmk,kscan = &kscan0;
     };
 
@@ -15,19 +17,18 @@
         compatible = "zmk,kscan-gpio-matrix";
         wakeup-source;
 
-        diode-direction = "col2row";
+        input-gpios = <&pro_micro 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
+                      <&pro_micro 8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
+                      <&pro_micro 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+    };
 
-         row-gpios
-            = <&pro_micro 18 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&pro_micro 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            ;
-
-        col-gpios
-            = <&pro_micro 10 GPIO_ACTIVE_HIGH>
-            , <&pro_micro 16 GPIO_ACTIVE_HIGH>
-            , <&pro_micro 14 GPIO_ACTIVE_HIGH>
-            , <&pro_micro 15 GPIO_ACTIVE_HIGH>
-            ;
+    default_transform: keymap_transform0 {
+        compatible = "zmk,matrix-transform";
+        columns = <3>; // Length of the "col-gpios" array
+        rows = <0>; // Length of the "row-gpios" array
+        map = <
+        //   Key 1 | Key 2 | Key 3
+            RC(0,0) RC(0,1) RC(0,2)
+        >;
     };
 };
